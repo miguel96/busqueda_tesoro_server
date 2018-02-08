@@ -1,0 +1,12 @@
+version: '2'
+services:
+  app:
+    image: node:8.4.0-alpine
+    mem_limit: 200M
+    working_dir: /src
+    volumes:
+    - /home/miguel/git_src/busqueda_tesoro_server/:/src
+    environment:
+      - COMPOSE=1
+    networks:
+      - net

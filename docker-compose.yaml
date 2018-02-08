@@ -1,0 +1,24 @@
+version: '2'
+networks:
+  net:
+services:
+  mongo:
+    image: mongo
+    command: --nojournal --wiredTigerDirectoryForIndexes
+    ports:
+      - "27017:27017"
+    volumes:
+      - /home/mecheniq/tmp/data
+    networks:
+      - net
+  server:
+    extends:
+      file: ./common.yaml
+      service: app
+    command: npx nodemon
+    ports:
+     - "3000:3000"
+    networks:
+      - net
+    depends_on:
+      - mongo
