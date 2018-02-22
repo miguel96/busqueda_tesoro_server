@@ -8,32 +8,36 @@
     <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
     <script>
       function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        var xhr=new XMLHttpRequest();
-        xhr.open('POST','/login/web',true);
+        try{
+          // Useful data for your client-side scripts:
+          var profile = googleUser.getBasicProfile();
+          var xhr=new XMLHttpRequest();
+          xhr.open('POST','/login/web',true);
 
-        xhr.setRequestHeader('Content-type','application/json');
-        xhr.onreadystatechange=function() {
-          if(xhr.readyState== XMLHttpRequest.DONE && xhr.status==201) {
-            console.log("request OK");
+          xhr.setRequestHeader('Content-type','application/json');
+          xhr.onreadystatechange=function() {
+            if(xhr.readyState== XMLHttpRequest.DONE && xhr.status==201) {
+              console.log("request OK");
+            }
           }
-        }
-        var userInfo={
-          id:profile.getId(),
-          name:profile.getName(),
-          givenName:profile.getGivenName(),
-          familyName:profile.getFamilyName(),
-          imageUrl: profile.getImageUrl(),
-          email: profile.getEmail(),
-          idToken: googleUser.getAuthResponse().id_token,
-        }
+          var userInfo={
+            id:profile.getId(),
+            name:profile.getName(),
+            givenName:profile.getGivenName(),
+            familyName:profile.getFamilyName(),
+            imageUrl: profile.getImageUrl(),
+            email: profile.getEmail(),
+            idToken: googleUser.getAuthResponse().id_token,
+          }
 
-        xhr.send(userInfo);
+          xhr.send(userInfo);
 
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
+          // The ID token you need to pass to your backend:
+          var id_token = googleUser.getAuthResponse().id_token;
+          console.log("ID Token: " + id_token);
+      }catch(err) {
+        console.error(err);
+      }
       };
     </script>
   </body>
