@@ -21,5 +21,14 @@ router.get('/callback', (req, res) => {
   });
 });
 
-
+router.post('/login/web', (req, res) => {
+  console.log(req.body);
+  req.app.get('loginManager').processWebLogin(req.body,(err)=>{
+    if(err) {
+      res.json(err);
+    } else {
+      res.status(201).send();
+    }
+  }
+});
 module.exports = router;
