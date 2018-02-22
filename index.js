@@ -31,7 +31,7 @@ waterfall([
 
   // 3. Init app
   (db, next) => {
-    app.listen(3000, err => next(err, db));
+    app.listen(config.port, err => next(err, db));
   },
 
   // 4. Set collection and GoogleAuth into app

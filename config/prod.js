@@ -16,6 +16,7 @@ const config = {
     mongo_uri: 'mongodb://mongodb:27017/btesoro',
     collection: 'users',
   },
+  port: 80,
 };
 module.exports = config;
 
