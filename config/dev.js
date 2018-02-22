@@ -13,7 +13,7 @@ const config = {
     ],
   },
   mongodb: {
-    mongo_uri: 'mongodb://mongodb:27017/btesoro',
+    mongo_uri: 'mongodb://mongo:27017/btesoro',
     collection: 'users',
   },
 };

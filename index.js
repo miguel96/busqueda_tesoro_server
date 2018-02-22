@@ -12,6 +12,7 @@ const app = express();
 
 
 app.use('/login', login);
+app.use(express.static('public'));
 
 waterfall([
   // 1. Init mongo connection
