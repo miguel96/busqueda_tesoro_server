@@ -1,5 +1,7 @@
 const router = require('express').Router();
+const bodyParser = require('body-parser');
 
+router.use(bodyParser.json());
 router.use((req, res, next) => {
   console.log(`${req.method} /login${req.path}`);
   next();
@@ -21,8 +23,7 @@ router.get('/callback', (req, res) => {
   });
 });
 
-router.post('/login/web', (req, res) => {
-  console.log(req.body);
+router.post('/web', (req, res) => {
   req.app.get('loginManager').processWebLogin(req.body, (err) => {
     if (err) {
       res.json(err);

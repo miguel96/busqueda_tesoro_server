@@ -2,6 +2,8 @@ const { waterfall } = require('async');
 const googleApis = require('googleapis');
 const express = require('express');
 const { MongoClient } = require('mongodb');
+const bodyParser = require('body-parser');
+
 const Mongo = require('./lib/Mongo');
 const config = require('./config');
 const login = require('./routes/login');
@@ -12,6 +14,8 @@ const app = express();
 
 
 app.use('/login', login);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 waterfall([

@@ -14,10 +14,12 @@
           var xhr=new XMLHttpRequest();
           xhr.open('POST','/login/web',true);
 
-          xhr.setRequestHeader('Content-type','application/json');
+          xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
           xhr.onreadystatechange=function() {
             if(xhr.readyState== XMLHttpRequest.DONE && xhr.status==201) {
-              console.log("request OK");
+              console.log('OK');
+            } else {
+              console.log('ERROR');
             }
           }
           var userInfo={
@@ -29,12 +31,12 @@
             email: profile.getEmail(),
             idToken: googleUser.getAuthResponse().id_token,
           }
-
-          xhr.send(userInfo);
+          console.log(userInfo);
+          xhr.send(JSON.stringify(userInfo));
 
           // The ID token you need to pass to your backend:
           var id_token = googleUser.getAuthResponse().id_token;
-          console.log("ID Token: " + id_token);
+          console.log(xhr.status);
       }catch(err) {
         console.error(err);
       }
