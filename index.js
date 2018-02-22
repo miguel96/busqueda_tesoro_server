@@ -16,7 +16,7 @@ app.use('/login', login);
 waterfall([
   // 1. Init mongo connection
   (next) => {
-    MongoClient.connect('mongodb://mongo:27017/', next);
+    MongoClient.connect(config.mongodb.mongo_uri, next);
   },
 
   // 2. Connect to db
