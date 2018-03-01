@@ -6,7 +6,7 @@ services:
     image: mongo
     command: --nojournal --wiredTigerDirectoryForIndexes
     ports:
-      - "27017:27017"
+      - "4000:27017"
     volumes:
       - /home/mecheniq/tmp/data
     networks:

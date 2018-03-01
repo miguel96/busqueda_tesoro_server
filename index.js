@@ -7,13 +7,16 @@ const bodyParser = require('body-parser');
 const Mongo = require('./lib/Mongo');
 const config = require('./config');
 const login = require('./routes/login');
+const users = require('./routes/users');
 const GoogleAuth = require('./lib/GoogleAuth');
 const LoginManager = require('./lib/LoginManager');
+const UsersManager = require('./lib/UsersManager');
 
 const app = express();
 
 
 app.use('/login', login);
+app.use('/users', users);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -39,9 +42,11 @@ waterfall([
     const mongo = new Mongo(db.collection(config.mongodb.collection));
     const googleAuth = new GoogleAuth(googleApis);
     const loginManager = new LoginManager(googleAuth, mongo);
+    const usersManager = new UsersManager(mongo);
     app.set('mongo', mongo);
     app.set('googleAuth', googleAuth);
     app.set('loginManager', loginManager);
+    app.set('usersManager', usersManager);
     next();
   },
 ], (err) => {
@@ -51,4 +56,3 @@ waterfall([
   }
   console.log('Server running');
 });
-
