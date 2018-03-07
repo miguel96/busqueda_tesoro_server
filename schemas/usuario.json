@@ -1,0 +1,40 @@
+{
+    "description":"Usuario de busqueda del tesoro",
+    "type":"object",
+    "definitions":{
+        "progresoHistoria":{
+            "type":"object",
+            "properties":{
+                "idHistoria":{
+                    "type":"string"
+                },
+                "fechaInicio":{
+                    "type":"string",
+                    "format":"date-time"
+                },
+                "pistasCompletadas":{
+                    "type":"array",
+                    "items":{
+                        "$ref":"#/definitions/progresoHistoria"
+                    }
+                }
+            }
+        }
+    },
+    "properties":{
+        "_id":{
+            "type":"string",
+            "description":"user id"
+        },
+        "fechaCreacion":{
+            "type":"string",
+            "format":"date-time"
+        },
+        "progresoHistorias":{
+            "type":"array",
+            "items":{
+                "$ref":"#/definitions/progresoHistoria"
+            }
+        }
+    }
+}

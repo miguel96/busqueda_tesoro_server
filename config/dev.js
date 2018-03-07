@@ -14,7 +14,9 @@ const config = {
   },
   mongodb: {
     mongo_uri: 'mongodb://mongo:27017/btesoro',
-    collection: 'users',
+    collections: {
+      usersCollection: 'users',
+    },
   },
   port: 3000,
 };

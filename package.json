@@ -25,7 +25,8 @@
     "googleapis": "^25.0.0",
     "mongo": "^0.1.0",
     "mongodb": "^3.0.2",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "uuid-v4": "^0.1.0"
   },
   "devDependencies": {
     "eslint": "^4.16.0",

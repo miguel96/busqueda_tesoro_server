@@ -98,11 +98,12 @@
 							<script>
 								function onSignIn(googleUser) {
 									try {
+										console.log('HERE');
 										// Useful data for your client-side scripts:
 										var profile = googleUser.getBasicProfile();
+										console.log('HERE');
 										var xhr = new XMLHttpRequest();
 										xhr.open('POST', '/login/web', true);
-
 										xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 										xhr.onreadystatechange = function () {
 											if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 201) {
@@ -143,7 +144,7 @@
 	</header>
 	<!-- /Header -->
 
-	
+
 
 	<!-- Footer -->
 	<footer id="footer" class="sm-padding bg-dark">
@@ -162,7 +163,7 @@
 					</div>
 					<!-- /footer logo -->
 
-					<!-- footer follow 
+					<!-- footer follow
 					<ul class="footer-follow">
 						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 						<li><a href="#"><i class="fa fa-twitter"></i></a></li>

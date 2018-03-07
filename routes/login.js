@@ -7,23 +7,19 @@ router.use((req, res, next) => {
   next();
 });
 
-router.get('/', (req, res) => {
-  res.json({ url: req.app.get('googleAuth').generateAuthUrl() });
-});
-
-router.get('/callback', (req, res) => {
-  const { code } = req.query;
-  req.app.get('loginManager').processLogin(code, (err, resp) => {
-    console.log('out');
+router.post('/android', (req, res) => {
+  console.log('Android login');
+  req.app.get('loginManager').processAndroidLogin(req.body, (err) => {
     if (err) {
       res.json(err);
     } else {
-      res.json(resp);
+      res.send(201).send();
     }
   });
 });
 
 router.post('/web', (req, res) => {
+  console.log('WEB LOGIN');
   req.app.get('loginManager').processWebLogin(req.body, (err) => {
     if (err) {
       res.json(err);
