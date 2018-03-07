@@ -39,7 +39,7 @@ waterfall([
 
   // 4. Set collection and GoogleAuth into app
   (db, next) => {
-    const mongo = new Mongo(db.collection(config.mongodb.collection));
+    const mongo = new Mongo(db);
     const googleAuth = new GoogleAuth(googleApis);
     const loginManager = new LoginManager(googleAuth, mongo);
     const usersManager = new UsersManager(mongo);
