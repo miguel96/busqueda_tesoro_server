@@ -9,6 +9,7 @@ router.use((req, res, next) => {
 
 router.post('/android', (req, res) => {
   console.log('Android login');
+  console.log(req.body);
   req.app.get('loginManager').processAndroidLogin(req.body, (err) => {
     if (err) {
       res.json(err);
