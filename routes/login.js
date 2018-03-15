@@ -10,11 +10,12 @@ router.use((req, res, next) => {
 router.post('/android', (req, res) => {
   console.log('Android login');
   console.log(req.body);
-  req.app.get('loginManager').processAndroidLogin(req.body.token, (err) => {
+  req.app.get('loginManager').processAndroidLogin(req.body.token, (err,userInfo) => {
     if (err) {
       res.json(err);
     } else {
-      res.send(201).send();
+      console.log(userInfo);
+      res.json(userInfo);
     }
   });
 });
@@ -23,7 +24,8 @@ router.post('/web', (req, res) => {
   console.log('WEB LOGIN');
   req.app.get('loginManager').processWebLogin(req.body, (err) => {
     if (err) {
-      res.json(err);
+      console.error(err);
+      res.status(500).send();
     } else {
       res.status(201).send();
     }
