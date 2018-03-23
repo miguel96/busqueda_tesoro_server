@@ -19,5 +19,9 @@ const config = {
     },
   },
   port: 3000,
+  logger: {
+    name: 'Busqueda del tesoro',
+    verbosity: 0,
+  },
 };
 module.exports = config;
