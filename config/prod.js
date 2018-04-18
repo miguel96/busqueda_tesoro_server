@@ -19,5 +19,9 @@ const config = {
     },
   },
   port: process.env.PORT || 3000,
+  logger: {
+    name: 'Busqueda del tesoro',
+    verbosity: 3,
+  },
 };
 module.exports = config;
