@@ -22,3 +22,6 @@ services:
       - net
     depends_on:
       - mongo
+    environment:
+      - "MONGO_PASS=midama"
+      - "STATUS=production"

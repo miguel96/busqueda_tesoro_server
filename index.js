@@ -14,7 +14,6 @@ const LoginManager = require('./lib/LoginManager');
 const UsersManager = require('./lib/UsersManager');
 const HistoriasManager = require('./lib/HistoriasManager');
 
-console.log(config);
 
 const app = express();
 const log = new Logger(config.logger);
@@ -37,12 +36,13 @@ waterfall([
   (client, next) => {
     app.listen(config.port, err => next(err, client));
   },
-], (err, db) => {
+], (err, client) => {
   if (err) {
     log.info(err);
     process.exit(err.code || 1);
   }
-  // log.info(db);
+
+  const db = client.db('btesoro');
   const googleAuth = new GoogleAuth(googleApis, log);
   const usersManager = new UsersManager(db.collection('users'), log);
   const loginManager = new LoginManager(googleAuth, usersManager, log);
