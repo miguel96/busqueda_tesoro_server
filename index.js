@@ -21,7 +21,6 @@ const log = new Logger(config.logger);
 app.use('/login', login);
 app.use('/users', users);
 app.use('/historias', historias);
-app.use(express.static);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/public`));
