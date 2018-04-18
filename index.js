@@ -14,6 +14,8 @@ const LoginManager = require('./lib/LoginManager');
 const UsersManager = require('./lib/UsersManager');
 const HistoriasManager = require('./lib/HistoriasManager');
 
+console.log(config);
+
 const app = express();
 const log = new Logger(config.logger);
 
