@@ -46,4 +46,16 @@ router.post('/android/google', (req, res) => {
   });
 });
 
+router.post('/auto', (req, res) => {
+  req.app.get('loginManager').processAuto((err, userInfo) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+    } else {
+      console.log(userInfo);
+      res.json(userInfo);
+    }
+  });
+});
+
 module.exports = router;

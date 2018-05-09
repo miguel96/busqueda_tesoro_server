@@ -13,4 +13,15 @@ router.get('/', (req, res) => {
   });
 });
 
+router.put('/:idHistoria/usuarios/:idUsuario/pistas/:idPista', (req, res) => {
+  req.app.get('usersManager').progresaHistoria(req.params.idUsuario, req.params.idHistoria, req.params.idPista, (err) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send();
+    } else {
+      res.status(204).send();
+    }
+  });
+});
+
 module.exports = router;
