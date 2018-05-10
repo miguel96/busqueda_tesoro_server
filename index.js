@@ -1,5 +1,6 @@
 const { waterfall } = require('async');
-const googleApis = require('googleapis');
+const firebase = require('firebase-admin');
+const serviceAccount = require('./config/serviceKey');
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
@@ -9,7 +10,6 @@ const config = require('./config');
 const login = require('./routes/login');
 const users = require('./routes/users');
 const historias = require('./routes/historias');
-const GoogleAuth = require('./lib/GoogleAuth');
 const LoginManager = require('./lib/LoginManager');
 const UsersManager = require('./lib/UsersManager');
 const HistoriasManager = require('./lib/HistoriasManager');
@@ -24,6 +24,12 @@ app.use('/historias', historias);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/public`));
+
+firebase.initializeApp({
+  credential: firebase.credential.cert(serviceAccount),
+  databaseURL: 'https://busqueda-tesoro.firebaseio.com',
+});
+
 
 waterfall([
   // 1. Init mongo connection
@@ -42,11 +48,9 @@ waterfall([
   }
 
   const db = client.db('btesoro');
-  const googleAuth = new GoogleAuth(googleApis, log);
   const usersManager = new UsersManager(db.collection('users'), log);
-  const loginManager = new LoginManager(googleAuth, usersManager, log);
+  const loginManager = new LoginManager(firebase, usersManager, log);
   const historiasManager = new HistoriasManager(db.collection('historias'), log);
-  app.set('googleAuth', googleAuth);
   app.set('loginManager', loginManager);
   app.set('usersManager', usersManager);
   app.set('historiasManager', historiasManager);

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "busqueda-tesoro",
+  "private_key_id": "a5be7408de96302e817028c7a5dc72a65e8b89ab",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDu4KwSkq9eTOoy\nfmvq5ZD5kFZbFh+ZOy4zWgcJj+jfxjAou0y5fhoYMozLj5fMc18moFxeHEy5PO6P\nEzPRhS7d8fHgkZ6wwAE9A60AjrNkSipVIxPfNytSCP3hYVa3CdRZBTs1cRiJFmnz\n8vDmuJNT8c3zhc61WwDb5zFZEPE/B7yhEDVcVa+OsWQoSsCwQu2uESyLm/2zQA8l\nfjFO+YsfK28JD4q00DDdPvoHgwi0LMeNzov9Vq/6lwu+f2gRoTpwDaWu66gIJMJ9\ny3jqpVIFaai0N2jwRH5kgcRBF3BECPhd0ogiAq+rojBkuB77SvmjWoHMRIqWsklo\n0hbvQV0pAgMBAAECggEAEaWcYKTgerVw6bkILOq3qpAcqQ75156VG6sPcQfmGr3v\n6dpoYR2tPNNjLliVzL9LLLXVDQjHLDoRn5U6E0TlAPVyOnZXhFQy4ziFy9A+9W47\nMV3thmRzeVR7uO4xc0UxIEBwLtMDjoEO47wzSsAg9icbYV2ltyUZa6VpMly7jb3W\niDU3DP6MbHpVIeS7mp4zmsojB8CBMiVkmi821Y+OHUmlPj1NtlgDyfQ/a1U4vlzf\nw/2y9S6Y6xkuP9XCTJT5eui4/hukDS0BwLWHXrcgRHkJjpNmmA7XfDRJimdi+K8R\nX9vZfazVoiEfffL3vwd6wK76rXUrDwxlFgDAbu3oAQKBgQD8x0bwvXHNNJ/R8u/6\nweG7ej6SIzXrcE3SAklac/m3Rarw8D5wODAMFOh1zZha6z/B27AAqI0rub4kaa0M\noNubw4IhxbbMTVLQ/PxPISD2CciDqXHU4o0P3SO6y1Kb1aVtVen0wveHvT7cjoxF\nltTOxU1Tu8e/BkAphjroEj7GAQKBgQDx7Aq3D2EFHdRBYA8pDjHpvHEirPNpf81R\ncBka0DEm2NqKAAq28ItowaxybdwvzYvbAWHwCkgfkRTmU2uISbVba/It+D4hMTuz\nEkh7wj8r91SUE3jfWfelyC3ak0BNYbkRNUOwc6ytJ5YilCGN8DOOFLaTe/dqBc6S\nScK0GgmnKQKBgGPqnTbxmzci0v2ZCpTS6FhDxNHdCyYqOQiHENmpOA7igeRFAlk3\nTH6qEQznnI5rqMMHBHXuKgcbn3YjM1znhIb4a8rPrSbqdY7YQR9CGBZI3bJ1WuJs\nPpgDsGjYj6m7dG1YZWbzXgaQnnVt/zJOoYWt5ZfwhM8UOG5xeX1cIOYBAoGAZD8w\njXzU8j7TFqgMgDG+oyGQLBNI5l2sIeP2szK0O2m+3VJ5Hid9TVJ7+AroI/Lj0kO3\nZrWL/3CqHWtR8u7ANPr9JuloLW7uUxzvZkEu1jQuGxIak0r/oPXbcmh0S9yDyMqu\nmu7EDhiKURfa86smYejZYzIKayeu2tWv1du4RkkCgYEA6s4u302ew0FX9LHmy7uX\n+/4fbIWQzczmDO3TTDGLztuL9E/Eoyr0j5ofRWh27ksMhAMaCJW9J3zxDiI0eQGI\nzlVBUeKhaBZJAt+6xOA1hPHd9koFMAz7h+MLNN5KajNLQi1//304WJedqwbTvm/I\n0YJOD1l8HHKjm75OdbysQ4g=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-tpv3s@busqueda-tesoro.iam.gserviceaccount.com",
+  "client_id": "101098776828654449857",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-tpv3s%40busqueda-tesoro.iam.gserviceaccount.com"
+}

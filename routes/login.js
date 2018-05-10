@@ -7,41 +7,48 @@ router.use((req, res, next) => {
   next();
 });
 
-router.post('/android', (req, res) => {
+router.get('/user', (req, res) => {
   console.log('Android login');
-  console.log(req.body);
-  req.app.get('loginManager').processAndroidLogin(req.body.token, (err, userInfo) => {
-    if (err) {
+  console.log(req.headers);
+  req.app.get('loginManager').processAndroidLogin(req.headers.authorization, (err, userInfo) => {
+    if (err && err !== 'NO_EXIST') {
       console.error(err);
+      console.log('WTF');
       res.status(500).send();
-    } else {
-      console.log(userInfo);
-      res.json(userInfo);
-    }
-  });
-});
-
-router.post('/web', (req, res) => {
-  console.log('WEB LOGIN');
-  req.app.get('loginManager').processWebLogin(req.body, (err) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send();
+    } else if (err === 'NO_EXIST') {
+      console.log('404');
+      res.status(404).send();
     } else {
       res.status(201).send();
     }
   });
 });
 
-router.post('/android/google', (req, res) => {
-  console.log('Android login existing');
-  req.app.get('loginManager').processAndroidLoginGoogleId(req.body.token, (err, userInfo) => {
+
+router.post('/register', (req, res) => {
+  console.log(req.body);
+  req.app.get('loginManager').registerUser(req.body, (err, resp) => {
     if (err) {
       console.error(err);
-      res.status(500).send();
+      res.error(err);
     } else {
-      console.log(userInfo);
-      res.json(userInfo);
+      console.log(resp);
+      res.json(resp);
+    }
+  });
+});
+router.post('/web', (req, res) => {
+  console.log('WEB LOGIN');
+  req.app.get('loginManager').processWebLogin(req.body, (err) => {
+    if (err && err !== 'NO_EXIST') {
+      console.error(err);
+      console.log('WTF');
+      res.status(500).send();
+    } else if (err === 'NO_EXIST') {
+      console.log('404');
+      res.status(404).send();
+    } else {
+      res.status(201).send();
     }
   });
 });
