@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 router.use(bodyParser.json());
 router.use((req, res, next) => {
-  console.log(`${req.method} /user${req.path}`);
+  console.log(`${req.method} /users${req.path}`);
   next();
 });
 
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.put(':idUsuario/historias/:idHistoria/pistas/:idPista', (req, res) => {
+router.put('/:idUsuario/historias/:idHistoria/pistas/:idPista', (req, res) => {
   req.app.get('usersManager').progresaHistoria(req.params.idUsuario, req.params.idHistoria, req.params.idPista, (err) => {
     if (err) {
       console.log(err);
