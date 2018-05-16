@@ -19,7 +19,7 @@ router.get('/user', (req, res) => {
       console.log('404');
       res.status(404).send();
     } else {
-      res.status(201).send();
+      res.json(userInfo);
     }
   });
 });
