@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	 <meta name=”description” content=”findkhana amigos egimkana ingenio reta tus tesoro juega pamplona upna UPNA publica” />
+	<meta name="description" content="FindKhana, reta a tus amigos a la mayor aventura nunca vista en un Smartphone. Encuentra las pitass del tesoro en pamplona y resuelve el asesinato en la UPNA. O crea tu propia historia" />
 	<title>Findkhana</title>
 
 	<!-- Google font -->
@@ -72,7 +72,9 @@
 
 				<!--  Main navigation  -->
 				<ul class="main-nav nav navbar-nav navbar-right">
-					<li><a href="#home">Home</a></li>
+					<li>
+						<a href="#home">Home</a>
+					</li>
 				</ul>
 				<!-- /Main navigation -->
 
@@ -89,49 +91,14 @@
 					<div class="col-md-10 col-md-offset-1">
 						<div class="home-content">
 							<h1 class="white-text">FindKhana</h1>
-							<p class="white-text">Pon a prueba tu Ingenio. Reta a tus amigos.
+							<p class="white-text">Pon a prueba tu Ingenio.Resuelve el misterio. Reta a tus amigos.
 							</p>
-							<div class="col-md-10 col-md-offset-5">
-							<p></p>
-							<div class="g-signin2" data-onsuccess="onSignIn" data-theme="light"></div>
+							<div class="col-md-10 col-md-offset-1">
+								<p>Sigue la apasionante historia sobre el asesinato en la UPNA que te ofrecemos o crea la tuya propia muy pronto en esta web</p>
+								<a href="https://play.google.com/store/apps/details?id=com.app.aro.FindKhana">
+									<img src="img/en_badge_web_generic.png" alt="logo">
+								</a>
 							</div>
-							<script>
-								function onSignIn(googleUser) {
-									try {
-										console.log('HERE');
-										// Useful data for your client-side scripts:
-										var profile = googleUser.getBasicProfile();
-										console.log('HERE');
-										var xhr = new XMLHttpRequest();
-										xhr.open('POST', '/login/web', true);
-										xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-										xhr.onreadystatechange = function () {
-											if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 201) {
-												console.log('OK');
-											} else {
-												console.log('ERROR');
-											}
-										}
-										var userInfo = {
-											id: profile.getId(),
-											name: profile.getName(),
-											givenName: profile.getGivenName(),
-											familyName: profile.getFamilyName(),
-											imageUrl: profile.getImageUrl(),
-											email: profile.getEmail(),
-											idToken: googleUser.getAuthResponse().id_token,
-										}
-										console.log(userInfo);
-										xhr.send(JSON.stringify(userInfo));
-
-										// The ID token you need to pass to your backend:
-										var id_token = googleUser.getAuthResponse().id_token;
-										console.log(xhr.status);
-									} catch (err) {
-										console.error(err);
-									}
-								};
-							</script>
 						</div>
 					</div>
 					<!-- /home content -->
@@ -159,7 +126,9 @@
 
 					<!-- footer logo -->
 					<div class="footer-logo">
-						<a href="index.html"><img src="img/logo-alt.png" alt="logo"></a>
+						<a href="index.html">
+							<img src="img/logo-alt.png" alt="logo">
+						</a>
 					</div>
 					<!-- /footer logo -->
 
@@ -176,7 +145,7 @@
 
 					<!-- footer copyright -->
 					<div class="footer-copyright">
-						<p>Copyright © 2017. All Rights Reserved. </p>
+						<p>Copyright © 2018. All Rights Reserved. </p>
 					</div>
 					<!-- /footer copyright -->
 
