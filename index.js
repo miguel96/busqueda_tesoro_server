@@ -17,6 +17,7 @@ const HistoriasManager = require('./lib/HistoriasManager');
 
 const app = express();
 const log = new Logger(config.logger);
+const compression = require('compression');
 
 app.use('/login', login);
 app.use('/users', users);
@@ -24,6 +25,7 @@ app.use('/historias', historias);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/public`));
+app.use(compression());
 
 firebase.initializeApp({
   credential: firebase.credential.cert(serviceAccount),
